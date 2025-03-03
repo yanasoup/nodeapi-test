@@ -1,11 +1,29 @@
 const express = require('express');
 const midtransClient = require('midtrans-client');
-
 const router = express.Router();
+const dotenv = require('dotenv');
+const envFile =
+  process.env.NODE_ENV === 'production'
+    ? '.env.production'
+    : '.env.development';
+dotenv.config({ path: envFile });
 
 const snap = new midtransClient.Snap({
   isProduction: false,
-  serverKey: 'SB-Mid-server-OE_e5FvqfBg5nl1IfcEO03I7',
+  serverKey: process.env.VITE_MIDTRANS_SERVER_KEY,
+});
+
+router.get('/', (req, res) => {
+  res.json({
+    message: 'midtrans API root!!',
+    env: process.env.NODE_ENV,
+  });
+});
+router.get('/ping', (req, res) => {
+  res.json({
+    message: 'pong: midtrans API root!!',
+    env: process.env.NODE_ENV,
+  });
 });
 
 router.post('/createToken', async (req, res, next) => {
