@@ -27,7 +27,6 @@ router.get('/kotewalala', (req, res) => {
 router.post('/createToken', async (req, res, next) => {
   try {
     const params = req.body;
-    console.log('params', params);
     const parameters = {
       transaction_details: params.transaction_details,
       callbacks: params.callbacks,
