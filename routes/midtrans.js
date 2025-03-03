@@ -15,14 +15,12 @@ const snap = new midtransClient.Snap({
 
 router.get('/', (req, res) => {
   res.json({
-    message: 'midtrans API root!!',
-    env: process.env.NODE_ENV,
+    message: 'midtrans API root!',
   });
 });
-router.get('/ping', (req, res) => {
+router.get('/kotewalala', (req, res) => {
   res.json({
-    message: 'pong: midtrans API root!!',
-    env: process.env.NODE_ENV,
+    message: process.env.VITE_MIDTRANS_SERVER_KEY,
   });
 });
 
