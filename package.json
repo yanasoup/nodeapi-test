@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "express": "^4.21.2"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
